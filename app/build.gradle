@@ -1,0 +1,98 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "com.jjjjjjjjaack.jmvp"
+        minSdkVersion 23
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "API_URL", "\"\""   //正式
+        }
+        debug {
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//            buildConfigField "String", "API_URL", "\"\""   //正式
+            buildConfigField "String", "API_URL", "\"\""   //测试
+        }
+    }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets.main {
+        jniLibs.srcDir 'libs'
+        jni.srcDirs = []
+        res.srcDirs = [
+                'src/main/res/layouts/other',
+                'src/main/res/layouts/frag',
+                'src/main/res/layouts/act',
+                'src/main/res/layouts',
+                'src/main/res'
+        ]
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    /** fastjson ***/
+    implementation 'com.alibaba:fastjson:1.2.73'
+
+    /**********okhttp3***********/
+    implementation("com.squareup.okhttp3:okhttp:4.5.0")
+
+    /**********ButterKnife***********/
+    implementation 'com.jakewharton:butterknife:10.2.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
+
+    /** rxjava  ***/
+    api 'io.reactivex:rxandroid:1.1.0'
+    api 'io.reactivex:rxjava:1.1.0'
+    /** eventbus  ***/
+    implementation 'org.greenrobot:eventbus:3.2.0'
+
+    // Java
+    implementation "androidx.navigation:navigation-fragment:2.1.0"
+    implementation "androidx.navigation:navigation-ui:2.1.0"
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    /** SmartRefreshLayout **/
+    implementation 'com.scwang.smart:refresh-layout-kernel:2.0.1'      //核心必须依赖
+    implementation 'com.scwang.smart:refresh-header-classics:2.0.1'    //经典刷新头
+    implementation 'com.scwang.smart:refresh-header-radar:2.0.1'       //雷达刷新头
+    implementation 'com.scwang.smart:refresh-footer-classics:2.0.1'    //经典加载
+    //仿ios底部弹框
+    implementation 'cn.yc:YCDialogLib:3.5'
+    /** **圆形ImageView   ****/
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    /***图片选择器***/
+    implementation 'io.github.lucksiege:pictureselector:v2.7.0-rc06'
+    //bugly
+    implementation 'com.tencent.bugly:crashreport:latest.release'
+    //zxing 二维码
+    implementation 'cn.yipianfengye.android:zxing-library:2.2'
+}

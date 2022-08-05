@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/splash_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/c_ffffff">
+
+    <ImageView
+        android:id="@+id/bg_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@color/main_color" />
+
+
+    <ImageView
+        android:id="@+id/iv_logo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_100"
+        android:src="@mipmap/ic_launcher_round" />
+
+    <TextView
+        android:id="@+id/countDown"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="35dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/shape_splash_countdownbg"
+        android:gravity="center"
+        android:textColor="@color/c_ffffff"
+        android:textSize="15sp" />
+
+
+    <FrameLayout
+        android:id="@+id/guide_fl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/guide_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <framework.mvp1.views.other.IndicatorView
+            android:id="@+id/indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="@dimen/dp_60"
+            app:selectedColor="@color/c_ffffff"
+            app:unselectedColor="#ffC7C7C7" />
+
+    </FrameLayout>
+
+
+</RelativeLayout>
